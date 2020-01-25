@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Analog Clock</title>
+  <style>
+    #clock {
+      position: relative;
+      background: url(clock.png) no-repeat;
+      width: 316px;
+      height: 316px;
+      left: 300px;
+
+
+
+
+    }
+
+    #clock>#hh,
+    #mh,
+    #sh {
+      position: absolute;
+      transform-origin: bottom;
+      background: #706c61;
+      border-radius: 7px;
+      opacity: 1;
+
+    }
+
+    #clock>#hh {
+      width: 8px;
+      height: 70px;
+      top: 70px;
+      left: 150px;
+
+    }
+
+    #clock>#mh {
+      width: 5px;
+      height: 85px;
+      top: 57px;
+      left: 150px;
+    }
+
+    #clock>#sh {
+      width: 2px;
+      height: 105px;
+      top: 36px;
+      left: 150px;
+      opacity: .3;
+    }
+    div.circle {
+      width: 25px;
+      height: 25px;
+      background-color: #706c61;
+      position: absolute;
+      top: 43%;
+      left: 45%;
+      border-radius: 100%;
+    }
+  </style>
+
+  <script type="text/javascript">
+    var d, h, m, s, hdeg;
+
+    function adjustClock() {
+      d = new Date();
+      h = d.getHours();
+      m = d.getMinutes();
+      s = d.getSeconds();
+      hdeg = h * 30 + m / 2;
+      hh.style.transform = "rotate(" + hdeg + "deg)";
+      mh.style.transform = "rotate(" + m * 6 + "deg)";
+      sh.style.transform = "rotate(" + s * 6 + "deg)";
+    }
+    window.addEventListener("load", function() {
+      setInterval(adjustClock, 1000);
+
+    });
+  </script>
+</head>
+
+<body>
+  <div id="clock">
+<div class="circle">
+
+</div>
+    <div id="hh"></div>
+    <div id="mh"></div>
+    <div id="sh"></div>
+
+  </div>
+
+</body>
+
+</html>
